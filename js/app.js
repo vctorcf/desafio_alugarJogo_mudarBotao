@@ -7,6 +7,14 @@ function confirmarDevolucao(jogo){
     }
 }
 
+function foiOuForam(){
+    if (jogosAlugados==1){
+        return "foi";
+    } else {
+        return "foram";
+    }
+}
+
 function alterarStatus(id){
     let jogo = document.getElementById(`game-${id}`);
     let ImagemDoJogo = jogo.querySelector('.dashboard__item__img');//coloca-se um . antes do query selecionado quando você quiser dizer que é uma classe
@@ -30,5 +38,10 @@ function alterarStatus(id){
         ImagemDoJogo.classList.add("dashboard__item__img--rented");
         botaoEstado.classList.add("dashboard__item__button--return");
         botaoEstado.textContent = "Devolver";
+        jogosAlugados++;
+        console.log(`${jogosAlugados} ${foiOuForam()} alugados.`);
     }
 }
+
+let jogosAlugados = 1;
+console.log(`${jogosAlugados} ${foiOuForam()} alugado.`);
